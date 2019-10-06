@@ -97,9 +97,7 @@ public class JsonUtilTest {
           "  ],\n" + 
           "  \"create\":\"2019/10/05\"\n" + 
           "}";
-        System.out.println(expected);
         String actual = JsonUtil.format(json);
-        System.out.println(actual);
         assertThat(actual, is(expected));
     }
 }

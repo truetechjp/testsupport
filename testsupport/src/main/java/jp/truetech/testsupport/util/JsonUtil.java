@@ -10,7 +10,6 @@ public class JsonUtil {
 
     private static final ObjectMapper OM = new ObjectMapper();
     private static final String EOL = System.getProperty("line.separator");
-    private static final String QUOT = "\"";
 
     public static String format(String json) {
         return format(json, 2);
@@ -94,6 +93,6 @@ public class JsonUtil {
     }
 
     static StringBuilder quote(StringBuilder sb, String value) {
-        return sb.append(QUOT).append(value).append(QUOT);
+        return sb.append("\"").append(value).append("\"");
     }
 }
