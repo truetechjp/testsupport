@@ -1,0 +1,19 @@
+        new Runnable() {
+            public void run() {
+                classLoaderHierarchy(" ->", getClass().getClassLoader());
+                Class<? extends MyResource> clazz = MyResource.class;
+                String resource = clazz.getName().replace(".", "/").concat(".class");
+                System.out.println(resource);
+                System.out.println("resource: " + clazz.getClassLoader().getResource(resource));
+            }
+
+            void classLoaderHierarchy(String indent, ClassLoader cl) {
+                System.out.println(indent + " " + cl);
+                try {
+                    if (cl.getParent() != null)
+                        classLoaderHierarchy(indent + indent, cl.getParent());
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        }.run();
